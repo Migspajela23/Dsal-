@@ -31,7 +31,7 @@
             TextBox facultysavingDepositTxtBox;
             button5 = new Button();
             button4 = new Button();
-            button3 = new Button();
+            saveBtn = new Button();
             button2 = new Button();
             grossIncomeBtn = new Button();
             label42 = new Label();
@@ -40,7 +40,7 @@
             label40 = new Label();
             label39 = new Label();
             otherLoanTxtBox = new TextBox();
-            salryLoanTxtBox = new TextBox();
+            salaryLoanTxtBox = new TextBox();
             label34 = new Label();
             facultysavingLoanTxtBox = new TextBox();
             label35 = new Label();
@@ -127,6 +127,7 @@
             button5.TabIndex = 170;
             button5.Text = "NEW";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -137,14 +138,15 @@
             button4.Text = "UPDATE";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // saveBtn
             // 
-            button3.Location = new Point(552, 764);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 31);
-            button3.TabIndex = 168;
-            button3.Text = "SAVE";
-            button3.UseVisualStyleBackColor = true;
+            saveBtn.Location = new Point(552, 764);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(75, 31);
+            saveBtn.TabIndex = 168;
+            saveBtn.Text = "SAVE";
+            saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += SaveBtn_Click;
             // 
             // button2
             // 
@@ -164,14 +166,14 @@
             grossIncomeBtn.TabIndex = 166;
             grossIncomeBtn.Text = "GROSS INCOME:";
             grossIncomeBtn.UseVisualStyleBackColor = true;
-            grossIncomeBtn.Click += button1_Click;
+            grossIncomeBtn.Click += Button1_Click;
             // 
             // label42
             // 
             label42.AutoSize = true;
             label42.Location = new Point(419, 708);
             label42.Name = "label42";
-            label42.Size = new Size(98, 15);
+            label42.Size = new Size(99, 15);
             label42.TabIndex = 165;
             label42.Text = "Total Deductions:";
             // 
@@ -217,12 +219,12 @@
             otherLoanTxtBox.Size = new Size(125, 23);
             otherLoanTxtBox.TabIndex = 160;
             // 
-            // salryLoanTxtBox
+            // salaryLoanTxtBox
             // 
-            salryLoanTxtBox.Location = new Point(530, 622);
-            salryLoanTxtBox.Name = "salryLoanTxtBox";
-            salryLoanTxtBox.Size = new Size(125, 23);
-            salryLoanTxtBox.TabIndex = 159;
+            salaryLoanTxtBox.Location = new Point(530, 622);
+            salaryLoanTxtBox.Name = "salaryLoanTxtBox";
+            salaryLoanTxtBox.Size = new Size(125, 23);
+            salaryLoanTxtBox.TabIndex = 159;
             // 
             // label34
             // 
@@ -507,7 +509,7 @@
             label18.AutoSize = true;
             label18.Location = new Point(41, 772);
             label18.Name = "label18";
-            label18.Size = new Size(80, 15);
+            label18.Size = new Size(81, 15);
             label18.TabIndex = 123;
             label18.Text = "NET INCOME:";
             // 
@@ -787,7 +789,7 @@
             ClientSize = new Size(1051, 869);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(saveBtn);
             Controls.Add(button2);
             Controls.Add(grossIncomeBtn);
             Controls.Add(label42);
@@ -796,7 +798,7 @@
             Controls.Add(label40);
             Controls.Add(label39);
             Controls.Add(otherLoanTxtBox);
-            Controls.Add(salryLoanTxtBox);
+            Controls.Add(salaryLoanTxtBox);
             Controls.Add(label34);
             Controls.Add(facultysavingLoanTxtBox);
             Controls.Add(label35);
@@ -877,7 +879,7 @@
 
         private Button button5;
         private Button button4;
-        private Button button3;
+        private Button saveBtn;
         private Button button2;
         private Button grossIncomeBtn;
         private Label label42;
@@ -886,7 +888,7 @@
         private Label label40;
         private Label label39;
         private TextBox otherLoanTxtBox;
-        private TextBox salryLoanTxtBox;
+        private TextBox salaryLoanTxtBox;
         private Label label34;
         private TextBox facultysavingLoanTxtBox;
         private Label label35;
