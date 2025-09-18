@@ -11,7 +11,7 @@ namespace WinFormsApp5
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Prelim_exam_lesson5());
+            Application.Run(new PRELIM_LESSON_5());
         }
     }
 }

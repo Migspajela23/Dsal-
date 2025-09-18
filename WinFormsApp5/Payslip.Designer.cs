@@ -259,7 +259,7 @@
             label9.Size = new Size(56, 15);
             label9.TabIndex = 7;
             label9.Text = "Basic Pay";
-            label9.Click += label9_Click;
+            
             // 
             // label10
             // 

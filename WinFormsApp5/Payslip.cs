@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization; 
 
 namespace WinFormsApp5
 {
@@ -17,9 +18,8 @@ namespace WinFormsApp5
             InitializeComponent();
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
+        
+        
         }
     }
 }

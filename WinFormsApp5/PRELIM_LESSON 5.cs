@@ -1,20 +1,22 @@
-   using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;  
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace WinFormsApp5
 {
-    public partial class Prelim_exam_lesson5 : Form
+    public partial class PRELIM_LESSON_5 : Form
     {
-
-        public Prelim_exam_lesson5()
+        public PRELIM_LESSON_5()
         {
             InitializeComponent();
+
             basicIncomeTxtBox.Enabled = false;
             hoIncomeTxtBox.Enabled = false;
             otIncomeTxtBox.Enabled = false;
@@ -25,26 +27,23 @@ namespace WinFormsApp5
             philhealthContribTxtBox.Enabled = false;
             pagibigContribTxtBox.Enabled = false;
             incometaxContribTxtBox.Enabled = false;
-
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void grossIncomeBtn_Click(object sender, EventArgs e)
         {
+            int basic_Hr, ho_Hr, ot_Hr;
+            double basic_Ratehr ,  basic_Income , ho_Ratehr ,  ho_income , ot_Rate ,  ot_Income , gross_income ,
+                sss_Contrib , incometaxContrib , pagibigContrib = 200.00, philhealthContrib ;
 
-        }
+            basic_Ratehr = Convert.ToDouble(basicRatehrTxtBox.Text);
+            basic_Hr = Convert.ToInt32(basicHrTxtBox.Text);
+            ho_Ratehr = Convert.ToDouble(horateHrsTxtBox.Text);
+            ho_Hr = Convert.ToInt32(hoHrsTxtBox.Text);
+            ot_Rate = Convert.ToDouble(otRateTxtBox.Text);
+            ot_Hr = Convert.ToInt32(otHrsTxtBox.Text);
+            ot_Income = Convert.ToDouble(otIncomeTxtBox.Text);
+            gross_income = Convert.ToDouble(grossIncomeTxtBox.Text);
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            double basic_Ratehr, basic_Hr, basic_Income, ho_Ratehr, ho_Hr, ho_income, ot_Rate, ot_Hr, ot_Income, gross_income,
-                sss_Contrib, incometaxContrib, pagibigContrib = 200.00, philhealthContrib;
-
-            // Use TryParse for safety
-            if (!double.TryParse(basicRatehrTxtBox.Text, out basic_Ratehr)) basic_Ratehr = 0;
-            if (!double.TryParse(basicHrTxtBox.Text, out basic_Hr)) basic_Hr = 0;
-            if (!double.TryParse(horateHrsTxtBox.Text, out ho_Ratehr)) ho_Ratehr = 0;
-            if (!double.TryParse(hoHrsTxtBox.Text, out ho_Hr)) ho_Hr = 0;
-            if (!double.TryParse(otRateTxtBox.Text, out ot_Rate)) ot_Rate = 0;
-            if (!double.TryParse(otHrsTxtBox.Text, out ot_Hr)) ot_Hr = 0;
 
             basic_Income = basic_Ratehr * basic_Hr;
             ho_income = ho_Ratehr * ho_Hr;
@@ -197,51 +196,33 @@ namespace WinFormsApp5
             else
                 incometaxContrib = 2202500 + ((gross_income - 8000000) * 0.35);
 
+            if(gross_income <= 10000)
+                philhealthContrib = gross_income * 0.05;
+            else if (gross_income >10000 && gross_income <=99999.99)
+                philhealthContrib = gross_income * 0.05;
+            else
+            { 
+                philhealthContrib = 5000 * 0.05;
+            {
 
-            philhealthContrib = gross_income * 0.05;
+
+
+
+
 
             sssContribTxtBox.Text = sss_Contrib.ToString("n");
             philhealthContribTxtBox.Text = philhealthContrib.ToString("n");
             pagibigContribTxtBox.Text = pagibigContrib.ToString("n");
             incometaxContribTxtBox.Text = incometaxContrib.ToString("n");
-        }
+    }
 
-
-
-        // Add this method to your Prelim_exam_lesson5 class
-        private void ClearTextBoxes(Control parent)
-        {
-            foreach (Control c in parent.Controls)
-            {
-                if (c is TextBoxBase tb)
-                    tb.Clear();
-
-                if (c.HasChildren)
-                    ClearTextBoxes(c);
-            }
-        }
-
-
-
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            ClearTextBoxes(this);
-            basicRatehrTxtBox.Focus();
-        }
-
-        private void SaveBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             double sss_Loan, pagibig_Loan, faculty_Deposit, faculty_Loan, salary_Loan, other_Loan, total_deductions, gross_income, net_income;
 
             sss_Loan = Convert.ToDouble(sssLoanTxtBox.Text);
             pagibig_Loan = Convert.ToDouble(pagibigLoanTxtBox.Text);
-            faculty_Deposit = Convert.ToDouble(facultysavingDepositTxtBox.Text);
+            faculty_Deposit = Convert.ToDouble(facultyDepositTxtBox.Text);
             faculty_Loan = Convert.ToDouble(facultysavingLoanTxtBox.Text);
             salary_Loan = Convert.ToDouble(salaryLoanTxtBox.Text);
             other_Loan = Convert.ToDouble(otherLoanTxtBox.Text);
